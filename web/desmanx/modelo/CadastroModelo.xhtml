@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro Modelo</title>
+    </h:head>
+    <h:body>
+        
+        <h:form id="formCadModelo">
+            
+            <p:fieldset legend="Cadastro de Modelo">
+                
+                <p:panelGrid columns="2">
+                    
+                    <h:outputText value="Nome"/>
+                    <p:inputText value="#{mdController.modelo.nome}"/>
+                    
+                    <h:outputText value="Fabricante"/>
+                    <p:inputText value="#{mdController.modelo.fabricante}"/>
+                    
+                    <h:outputText value="Tipo"/>
+                    <p:inputText value="#{mdController.modelo.tipo}"/>
+                    
+                    <h:outputText value="Potencia Motor"/>
+                    <p:inputText value="#{mdController.modelo.potenciaMotor}"/>
+                    
+                    <h:outputText value="Cilindrada Motor"/>
+                    <p:inputText value="#{mdController.modelo.cilindradaMotor}"/>
+                </p:panelGrid>
+                
+                <p:commandButton value="Voltar" action='ApresentaModelo'/>
+                
+                <p:commandButton value="Cadastrar" 
+                                 oncomplete="PF('widConfModelo').show()"
+                                 />
+                
+            </p:fieldset>
+            
+            <p:dialog id="confCadModelo" modal="true"
+                      widgetVar="widConfModelo">
+                <h:outputText value="Deseja realmente cadastrar o modelo?"/><br/>
+                <p:commandButton value="Sim" action="#{mdController.inserir()}" 
+                                 oncomplete="PF('widConfModelo').hide()" update=':formCadModelo'/>
+                <p:commandButton value="Não" oncomplete="PF('widConfModelo').hide()"/>
+            </p:dialog>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+

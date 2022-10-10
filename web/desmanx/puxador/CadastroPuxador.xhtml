@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro Puxador</title>
+    </h:head>
+    <h:body>
+        
+        <h:form id="formCadPuxador">
+            
+            <p:fieldset legend="Cadastro de Puxador">
+                
+                    <p:panelGrid columns="2">
+                        <h:outputText value="CPF"/>
+                    <p:inputText value="#{pxController.puxador.cpf}"/>
+
+                    <h:outputText value="Nome"/>
+                    <p:inputText value="#{pxController.puxador.nome}"/>
+
+                    <h:outputText value="Sobrenome"/>
+                    <p:inputText value="#{pxController.puxador.sobrenome}"/>
+
+                    <h:outputText value="Telefone"/>
+                    <p:inputText value="#{pxController.puxador.telefone}"/>
+
+                    <h:outputText value="Endereço"/>
+                    <p:inputText value="#{pxController.puxador.endereco}"/>
+
+                    <h:outputText value="Endereço Mãe"/>
+                    <p:inputText value="#{pxController.puxador.enderecoMae}"/>
+
+                    <h:outputText value="Quantidade Prisões"/>
+                    <p:inputText value="#{pxController.puxador.quantidadePrisoes}"/>
+
+                    <h:outputText value="Anos Experiencia"/>
+                    <p:inputText value="#{pxController.puxador.anosExperiencia}"/>
+                    
+                </p:panelGrid>
+                
+                <p:commandButton value="Voltar" action='ApresentaPuxador'/>
+                
+                <p:commandButton value="Cadastrar" 
+                                 oncomplete="PF('widConfPuxador').show()"
+                                 />
+                
+            </p:fieldset>
+            
+            <p:dialog id="confCadPuxador" modal="true"
+                      widgetVar="widConfPuxador">
+                <h:outputText value="Deseja realmente cadastrar o puxador?"/><br/>
+                <p:commandButton value="Sim" action="#{pxController.inserir()}" 
+                                 oncomplete="PF('widConfPuxador').hide()" update=':formCadPuxador'/>
+                <p:commandButton value="Não" oncomplete="PF('widConfPuxador').hide()"/>
+            </p:dialog>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+

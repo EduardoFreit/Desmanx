@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Alterar Puxador</title>
+    </h:head>
+    <h:body>
+        <p:growl id="gro" life="4000"/>
+        <h:form id="formAltPuxador">
+            
+            <p:fieldset legend="Alterar Puxador">
+                
+                <p:panelGrid columns="2">
+                    
+                    <h:outputText value="CPF"/>
+                    <p:inputText value="#{pxController.selPuxador.cpf}"/>
+
+                    <h:outputText value="Nome"/>
+                    <p:inputText value="#{pxController.selPuxador.nome}"/>
+
+                    <h:outputText value="Sobrenome"/>
+                    <p:inputText value="#{pxController.selPuxador.sobrenome}"/>
+
+                    <h:outputText value="Telefone"/>
+                    <p:inputText value="#{pxController.selPuxador.telefone}"/>
+
+                    <h:outputText value="Endereço"/>
+                    <p:inputText value="#{pxController.selPuxador.endereco}"/>
+
+                    <h:outputText value="Endereço Mãe"/>
+                    <p:inputText value="#{pxController.selPuxador.enderecoMae}"/>
+
+                    <h:outputText value="Quantidade Prisões"/>
+                    <p:inputText value="#{pxController.selPuxador.quantidadePrisoes}"/>
+
+                    <h:outputText value="Anos Experiencia"/>
+                    <p:inputText value="#{pxController.selPuxador.anosExperiencia}"/>
+                </p:panelGrid>
+                
+                <p:commandButton value="Voltar" action='ApresentaPuxador'/>
+                
+                <p:commandButton value="Atualizar" 
+                                 oncomplete="PF('widConfPuxador').show()"
+                                 />
+                
+            </p:fieldset>
+            
+            <p:dialog id="confCadPuxador" modal="true"
+                      widgetVar="widConfPuxador">
+                <h:outputText value="Deseja realmente Atualizar?"/><br/>
+                <p:commandButton value="sim" action="#{pxController.alterar()}" 
+                                 oncomplete="PF('widConfPuxador').hide()" update=':formAltPuxador'/>
+                <p:commandButton value="não" oncomplete="PF('widConfPuxador').hide()"/>
+            </p:dialog>
+            
+        </h:form>
+    </h:body>
+</html>
+

@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Cadastro Peca</title>
+    </h:head>
+    <h:body>
+        
+        <h:form id="formCadPeca">
+            
+            <p:fieldset legend="Cadastro de Peca">
+                
+                <p:panelGrid columns="2">
+                    <h:outputText value="Nome"/>
+                    <p:inputText value="#{pcController.peca.nome}"/>
+                    
+                    <h:outputText value="Função"/>
+                    <p:inputText value="#{pcController.peca.funcao}"/>
+                    
+                    <h:outputText value="Tipo"/>
+                    <p:inputText value="#{pcController.peca.tipo}"/>
+                    
+                    <h:outputText value="Observacao"/>
+                    <p:editor value="#{pcController.peca.obs}" />
+                    <h:outputText/>
+                </p:panelGrid>
+                
+                <p:commandButton value="Voltar" action='ApresentaPeca'/>
+                
+                <p:commandButton value="Cadastrar" 
+                                 oncomplete="PF('widConfPeca').show()"
+                                 />
+                
+            </p:fieldset>
+            
+            <p:dialog id="confCadPeca" modal="true"
+                      widgetVar="widConfPeca">
+                <h:outputText value="Deseja realmente cadastrar o peca?"/><br/>
+                <p:commandButton value="Sim" action="#{pcController.inserir()}" 
+                                 oncomplete="PF('widConfPeca').hide()" update=':formCadPeca'/>
+                <p:commandButton value="Não" oncomplete="PF('widConfPeca').hide()"/>
+            </p:dialog>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+

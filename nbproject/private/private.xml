@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/modelo/ApresentaModelo.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/peca/ApresentaPeca.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/Cabrito.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/ItemPeca.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/Desmanx.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/Puxador.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/modelo/AlteraModelo.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/puxador/AlteraPuxador.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/dao/ManagerDao.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/controller/PecaController.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/Peca.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/negocio/Modelo.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/modelo/CadastroModelo.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/peca/CadastroPeca.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/WEB-INF/web.xml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/conf/persistence.xml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/peca/AlteraPeca.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/controller/PuxadorController.java</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/puxador/CadastroPuxador.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/desmanx/puxador/ApresentaPuxador.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/index.xhtml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/web/META-INF/context.xml</file>
+            <file>file:/D:/Users/lepf9/Documents/workspace/IFPE/5-Periodo/Web3-Eduardo/Desmanx/src/java/com/devdesp/model/controller/ModeloController.java</file>
+        </group>
+    </open-files>
+</project-private>

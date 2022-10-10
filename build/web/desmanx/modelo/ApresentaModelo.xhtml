@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Apresenta Modelo</title>
+    </h:head>
+    <h:body>
+
+        <p:growl id="gro" life="4000"/>
+        
+        <h:form>
+            <p:commandButton value="Voltar" action='/index.xhtml'/>
+        </h:form>
+
+        <h:form id="formApresentaModelo">
+
+            <p:dataTable id="tblModelo" var="item" 
+                         value="#{mdController.readAllModelo()}"
+                         paginator="true" rows="5" selectionMode="single"
+                         selection="#{mdController.selModelo}"
+                         rowKey="#{item.id}">
+
+                <p:column headerText="Id">
+                    #{item.id}
+                </p:column>
+                <p:column headerText="Nome">
+                    #{item.nome}
+                </p:column>
+                <p:column headerText="Fabricante">
+                    #{item.fabricante}
+                </p:column>
+                <p:column headerText="Tipo">
+                    #{item.tipo}
+                </p:column>
+                <p:column headerText="Potencia Motor">
+                    #{item.potenciaMotor}
+                </p:column>
+                <p:column headerText="Cilindrada Motor">
+                    #{item.cilindradaMotor}
+                </p:column>
+            </p:dataTable>
+            
+            
+            <p:commandButton value="Cadastrar" action='CadastroModelo'/>
+
+            <p:commandButton value="Visualizar"
+                             oncomplete="PF('widDialVisualizaModeloItem').show()"
+                             update=':dialVisualizaModeloItem'/>
+
+            <p:commandButton value="Alterar" action='AlteraModelo'/>
+
+            <p:commandButton value="Deletar" action="#{mdController.deletar()}"
+                             update=":formApresentaModelo :gro">
+                <p:confirm message="Deseja relamente deletar?"/>
+            </p:commandButton>
+
+        </h:form>
+
+        <p:dialog id="dialVisualizaModeloItem" resizable="false"
+                  modal="true" 
+                  widgetVar="widDialVisualizaModeloItem"
+                  visible="false">
+
+            <p:panelGrid columns="2">
+
+                <h:outputText value="Id"/>
+                <h:outputText value="#{mdController.selModelo.id}"/>
+
+                <h:outputText value="Nome"/>
+                <h:outputText value="#{mdController.selModelo.nome}"/>
+
+                <h:outputText value="Tipo"/>
+                <h:outputText value="#{mdController.selModelo.tipo}"/>
+
+                <h:outputText value="Potencia Motor"/>
+                <h:outputText value="#{mdController.selModelo.potenciaMotor}"/>
+
+                <h:outputText value="Cilindrada Motor"/>
+                <h:outputText value="#{mdController.selModelo.cilindradaMotor}"
+                              escape="xml"/>
+
+
+
+            </p:panelGrid>
+
+            <h:form>
+                <p:commandButton value="fechar" 
+                                 oncomplete="PF('widDialVisualizaModeloItem').hide()"/>
+            </h:form>
+
+        </p:dialog>
+
+        <p:confirmDialog global='true'>
+            <h:form>
+                <p:commandButton value="Sim" styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton value="Não" styleClass="ui-confirmdialog-no"/>
+            </h:form>
+        </p:confirmDialog>
+
+    </h:body>
+</html>
+

@@ -1,0 +1,98 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Apresenta Peca</title>
+    </h:head>
+    <h:body>
+
+        <p:growl id="gro" life="4000"/>
+        
+        <h:form>
+            <p:commandButton value="Voltar" action='/index.xhtml'/>
+        </h:form>
+
+        <h:form id="formApresentaPeca">
+
+            <p:dataTable id="tblPeca" var="item" 
+                         value="#{pcController.readAllPeca()}"
+                         paginator="true" rows="5" selectionMode="single"
+                         selection="#{pcController.selPeca}"
+                         rowKey="#{item.id}">
+
+                <p:column headerText="Id">
+                    #{item.id}
+                </p:column>
+                <p:column headerText="Nome">
+                    #{item.nome}
+                </p:column>
+                <p:column headerText="Funcao">
+                    #{item.funcao}
+                </p:column>
+                <p:column headerText="Tipo">
+                    #{item.tipo}
+                </p:column>
+            </p:dataTable>
+            
+            <p:commandButton value="Cadastrar" action='CadastroPeca'/>
+
+            <p:commandButton value="Visualizar"
+                             oncomplete="PF('widDialVisualizaPecaItem').show()"
+                             update=':dialVisualizaPecaItem'/>
+
+            <p:commandButton value="Alterar" action='AlteraPeca'/>
+
+            <p:commandButton value="Deletar" action="#{pcController.deletar()}"
+                             update=":formApresentaPeca :gro">
+                <p:confirm message="Deseja relamente deletar?"/>
+            </p:commandButton>
+
+        </h:form>
+
+        <p:dialog id="dialVisualizaPecaItem" resizable="false"
+                  modal="true" 
+                  widgetVar="widDialVisualizaPecaItem"
+                  visible="false">
+
+            <p:panelGrid columns="2">
+
+                <h:outputText value="Id"/>
+                <h:outputText value="#{pcController.selPeca.id}"/>
+
+                <h:outputText value="Nome"/>
+                <h:outputText value="#{pcController.selPeca.nome}"/>
+
+                <h:outputText value="Tipo"/>
+                <h:outputText value="#{pcController.selPeca.tipo}"/>
+
+                <h:outputText value="Funcao"/>
+                <h:outputText value="#{pcController.selPeca.funcao}"/>
+
+                <h:outputText value="Observação"/>
+                <h:outputText value="#{pcController.selPeca.obs}"
+                              escape="xml"/>
+
+
+
+            </p:panelGrid>
+
+            <h:form>
+                <p:commandButton value="fechar" 
+                                 oncomplete="PF('widDialVisualizaPecaItem').hide()"/>
+            </h:form>
+
+        </p:dialog>
+
+        <p:confirmDialog global='true'>
+            <h:form>
+                <p:commandButton value="Sim" styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton value="Não" styleClass="ui-confirmdialog-no"/>
+            </h:form>
+        </p:confirmDialog>
+
+    </h:body>
+</html>
+

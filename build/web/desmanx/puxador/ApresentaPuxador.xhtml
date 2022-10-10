@@ -1,0 +1,119 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Apresenta Puxador</title>
+    </h:head>
+    <h:body>
+
+        <p:growl id="gro" life="4000"/>
+        
+        <h:form>
+            <p:commandButton value="Voltar" action='/index.xhtml'/>
+        </h:form>
+        
+        <h:form id="formApresentaPuxador">
+
+            <p:dataTable id="tblPuxador" var="item" 
+                         value="#{pxController.readAllPuxador()}"
+                         paginator="true" rows="5" selectionMode="single"
+                         selection="#{pxController.selPuxador}"
+                         rowKey="#{item.id}">
+
+                <p:column headerText="Id">
+                    #{item.id}
+                </p:column>
+                <p:column headerText="CPF">
+                    #{item.cpf}
+                </p:column>
+                <p:column headerText="Nome">
+                    #{item.nome}
+                </p:column>
+                <p:column headerText="Sobrenome">
+                    #{item.sobrenome}
+                </p:column>
+                <p:column headerText="Telefone">
+                    #{item.telefone}
+                </p:column>
+                <p:column headerText="Endereco">
+                    #{item.endereco}
+                </p:column>
+                <p:column headerText="Endereco Mãe">
+                    #{item.enderecoMae}
+                </p:column>
+                <p:column headerText="Quantidade Prisões">
+                    #{item.quantidadePrisoes}
+                </p:column>
+                <p:column headerText="Anos Experiencia">
+                    #{item.anosExperiencia}
+                </p:column>
+            </p:dataTable>
+
+            <p:commandButton value="Cadastrar" action='CadastroPuxador'/>
+            
+            <p:commandButton value="Visualizar"
+                             oncomplete="PF('widDialVisualizaPuxadorItem').show()"
+                             update=':dialVisualizaPuxadorItem'/>
+
+            <p:commandButton value="Alterar" action='AlteraPuxador'/>
+
+            <p:commandButton value="Deletar" action="#{pxController.deletar()}"
+                             update=":formApresentaPuxador :gro">
+                <p:confirm message="Deseja relamente deletar?"/>
+            </p:commandButton>
+
+        </h:form>
+
+        <p:dialog id="dialVisualizaPuxadorItem" resizable="false"
+                  modal="true" 
+                  widgetVar="widDialVisualizaPuxadorItem"
+                  visible="false">
+
+            <p:panelGrid columns="2">
+
+                <h:outputText value="CPF"/>
+                <h:outputText value="#{pxController.selPuxador.cpf}"/>
+
+                <h:outputText value="Nome"/>
+                <h:outputText value="#{pxController.selPuxador.nome}"/>
+
+                <h:outputText value="Sobrenome"/>
+                <h:outputText value="#{pxController.selPuxador.sobrenome}"/>
+
+                <h:outputText value="Telefone"/>
+                <h:outputText value="#{pxController.selPuxador.telefone}"/>
+
+                <h:outputText value="Endereço"/>
+                <h:outputText value="#{pxController.selPuxador.endereco}"/>
+
+                <h:outputText value="Endereço Mãe"/>
+                <h:outputText value="#{pxController.selPuxador.enderecoMae}"/>
+
+                <h:outputText value="Quantidade Prisões"/>
+                <h:outputText value="#{pxController.selPuxador.quantidadePrisoes}"/>
+
+                <h:outputText value="Anos Experiencia"/>
+                <h:outputText value="#{pxController.selPuxador.anosExperiencia}"/>
+
+            </p:panelGrid>
+
+            <h:form>
+                <p:commandButton value="fechar" 
+                                 oncomplete="PF('widDialVisualizaPuxadorItem').hide()"/>
+            </h:form>
+
+        </p:dialog>
+
+        <p:confirmDialog global='true'>
+            <h:form>
+                <p:commandButton value="Sim" styleClass="ui-confirmdialog-yes"/>
+                <p:commandButton value="Não" styleClass="ui-confirmdialog-no"/>
+            </h:form>
+        </p:confirmDialog>
+
+    </h:body>
+</html>
+
